@@ -8,5 +8,3 @@ function spinWords(words){
     return str.split('').reverse().join('');
   }
   
-
-  
