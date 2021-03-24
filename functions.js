@@ -8,3 +8,6 @@ function spinWords(words){
     return str.split('').reverse().join('');
   }
   
+//Trier nombres +ptit au +grand
+
+sort((a, b) => a - b);
