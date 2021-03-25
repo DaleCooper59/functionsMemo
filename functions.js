@@ -19,3 +19,10 @@ function isPangram(string){
     return string.indexOf(x) !== -1;
   });
 }
+
+//check si un array contient l'élément
+//ex: isInside([55,88,'vache',null],'vache') => true
+function isInside(a,b){
+  return a.includes(b);
+}
+
