@@ -130,9 +130,7 @@ function sortArray(array) {
     }
   }
   //sort odds from smallest to largest
-  odds.sort(function(a,b){
-    return a-b;
-  });
+  odds.sort((a,b)=> a-b);
   
   //loop through array, replace any odd values with sorted odd values
   for (var j = 0; j < array.length; ++j) {
