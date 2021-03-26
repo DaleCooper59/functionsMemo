@@ -108,3 +108,37 @@ function reverseNumber(n) {
   }
   
 }
+
+
+//memo class
+class Ball {
+  constructor(ballType = "regular") {
+    this.ballType = ballType;
+  }
+}
+
+const ball1 = new Ball('awesome');
+
+
+//retirer impair, trier et replacer au meme endroit dans array
+function sortArray(array) {
+  var odds = [];
+  //loop, if it's odd, push to odds array
+  for (var i = 0; i < array.length; ++i) {
+    if (array[i]%2 !== 0) {
+      odds.push(array[i]);
+    }
+  }
+  //sort odds from smallest to largest
+  odds.sort(function(a,b){
+    return a-b;
+  });
+  
+  //loop through array, replace any odd values with sorted odd values
+  for (var j = 0; j < array.length; ++j) {
+    if (array[j]%2 !== 0) {
+      array[j] = odds.shift();
+    }
+  }
+ return array;
+}
