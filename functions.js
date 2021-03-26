@@ -22,12 +22,18 @@ function isPangram(string){
   });
 }
 
-//retourner seul élément par ou impair d'un tableau
+//retourner seul élément pair ou impair d'un tableau
 function findOutlier(int){
   var even = int.filter(a=>a%2==0);
   var odd = int.filter(a=>a%2!==0);
   return even.length==1? even[0] : odd[0];
 }
+        //ou
+        function findOutlier(int){
+          var evens=[],odds=[];
+          int.forEach(function(num){num% 2 !=0? odds.push(num):evens.push(num) });
+          return odds.length>1? evens[0]: odds[0];
+          }
 
 
 
@@ -52,5 +58,29 @@ function isInside(a,b){
   return a.includes(b);
 }
 
+//check si une de ces lettres dans string
+function printerError(s) {
+  return s.match(/[^a-m]/g).length + "/" + s.length;
+}
+        //ou
+        function printerError(s) {
+          let count = 0;
+          for (i = 0; i < s.length; i++) {
+              if (s[i] > "m") {
+                  count++;
+              }
+          }
+          return `${count}/${s.length}`;
+      }
 
 
+
+//récupéer milieu d'un string
+function getMiddle(s)
+{
+  
+  let strAr = s.split('');
+  let halfLen = Math.floor(strAr.length/2);
+  return Math.floor(strAr.length/2), strAr.length % 2 === 0 ? s[halfLen - 1] + s[halfLen] : s[halfLen];
+  
+}
