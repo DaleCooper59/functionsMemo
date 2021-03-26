@@ -84,3 +84,27 @@ function getMiddle(s)
   return Math.floor(strAr.length/2), strAr.length % 2 === 0 ? s[halfLen - 1] + s[halfLen] : s[halfLen];
   
 }
+
+
+//transforme lettre en sa valuer dans l'alphabet
+function alphabetPosition(text) {
+ 
+return text
+  .toUpperCase()
+  .match(/[a-z]/gi)
+  .map( (c) => c.charCodeAt() - 64)
+  .join(' ');
+}
+
+
+//inverser nomber en gardant signe -
+function reverseNumber(n) {
+  let str = n.toString().split("").reverse().join('');
+   if (str.charAt(str.length-1) === ('-')){
+     
+    return - + parseInt(str)
+  }else{
+    return parseInt(str)
+  }
+  
+}
