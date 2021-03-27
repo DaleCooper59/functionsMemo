@@ -9,8 +9,10 @@ function spinWords(words){
 
 
   
+
 //Trier nombres +ptit au +grand
 sort((a, b) => a - b);
+
 
 
 
@@ -21,6 +23,9 @@ function isPangram(string){
     return string.indexOf(x) !== -1;
   });
 }
+
+
+
 
 //retourner seul élément pair ou impair d'un tableau
 function findOutlier(int){
@@ -34,6 +39,7 @@ function findOutlier(int){
           int.forEach(function(num){num% 2 !=0? odds.push(num):evens.push(num) });
           return odds.length>1? evens[0]: odds[0];
           }
+
 
 
 
@@ -52,11 +58,15 @@ function change(x){
 
 
 
+
 //check si un array contient l'élément
 //ex: isInside([55,88,'vache',null],'vache') => true
 function isInside(a,b){
   return a.includes(b);
 }
+
+
+
 
 //check si une de ces lettres dans string
 function printerError(s) {
@@ -75,6 +85,7 @@ function printerError(s) {
 
 
 
+
 //récupéer milieu d'un string
 function getMiddle(s)
 {
@@ -86,6 +97,8 @@ function getMiddle(s)
 }
 
 
+
+
 //transforme lettre en sa valuer dans l'alphabet
 function alphabetPosition(text) {
  
@@ -95,6 +108,8 @@ return text
   .map( (c) => c.charCodeAt() - 64)
   .join(' ');
 }
+
+
 
 
 //inverser nomber en gardant signe -
@@ -110,6 +125,8 @@ function reverseNumber(n) {
 }
 
 
+
+
 //memo class
 class Ball {
   constructor(ballType = "regular") {
@@ -118,6 +135,8 @@ class Ball {
 }
 
 const ball1 = new Ball('awesome');
+
+
 
 
 //retirer impair, trier et replacer au meme endroit dans array
@@ -142,6 +161,8 @@ function sortArray(array) {
 }
 
 
+
+
 //switch check boolean
 function logicalCalc(array, op) {
   switch (op) {
@@ -164,12 +185,15 @@ function xor(bool1, bool2) {
 }
 
 
+
+
 //function récursive pour accumuler number
 function digital_root(n) {
   if(n<10)return n;
   
   return digital_root(n.toString().split('').reduce((a, b) => parseInt(a) + parseInt(b), 0));
 }
+
 
 
 
@@ -184,6 +208,8 @@ var obj = {};
   }
 
 
+
+
 //uppercase chaque lettre paire + premiere lettre
 function toWeirdCase(string){
   return string.split(' ').map(function(word){
@@ -192,6 +218,8 @@ function toWeirdCase(string){
     }).join('');
   }).join(' ');
 }
+
+
 
 
 //loop argent gagnés chaque tour avec somme totale gagnée à la fin
@@ -210,3 +238,16 @@ function magicalWell(a, b, n) {
   }
   return 0;
 }
+
+
+
+
+//reverse letter et enlever char spe + number
+function reverseLetter(str) {
+  let newStr = str.replace(/\W|_|[0-9]/g , '')
+  return Array.from(newStr).reverse().join('')
+}
+        //ou
+        function reverseLetter(str) {
+          return [...str].reduce((s, c) => /[A-Z]/i.test(c) ? c + s : s, "")
+        }
