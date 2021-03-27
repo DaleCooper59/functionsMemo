@@ -192,3 +192,21 @@ function toWeirdCase(string){
     }).join('');
   }).join(' ');
 }
+
+
+//loop argent gagnés chaque tour avec somme totale gagnée à la fin
+function magicalWell(a, b, n) {
+  if(n!==0){
+    let sumTotal =[];
+     for (var i = 0;i < n; ++i){
+   
+         var sum = a*b;
+         sumTotal.push(sum);
+         a++;
+         b++;
+     }
+  
+    return sumTotal.reduce((a,b)=>a+b);
+  }
+  return 0;
+}
