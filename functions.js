@@ -182,3 +182,13 @@ var obj = {};
   for(prop in obj) {
     if(obj[prop] % 2 !== 0) return Number(prop);
   }
+
+
+//uppercase chaque lettre paire + premiere lettre
+function toWeirdCase(string){
+  return string.split(' ').map(function(word){
+    return word.split('').map(function(letter, index){
+      return index % 2 == 0 ? letter.toUpperCase() : letter.toLowerCase()
+    }).join('');
+  }).join(' ');
+}
