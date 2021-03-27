@@ -170,3 +170,15 @@ function digital_root(n) {
   
   return digital_root(n.toString().split('').reduce((a, b) => parseInt(a) + parseInt(b), 0));
 }
+
+
+
+//compteur d'element 
+var obj = {};
+  A.forEach(function(el){
+    obj[el] ? obj[el]++ : obj[el] = 1;
+  });
+  
+  for(prop in obj) {
+    if(obj[prop] % 2 !== 0) return Number(prop);
+  }
