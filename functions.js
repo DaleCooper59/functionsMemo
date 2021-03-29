@@ -286,3 +286,34 @@ function apples(kilos, price) {
   }
   return finalPrice
 }
+
+
+
+
+//reverse array de n nombre entré en paramètre
+const reverseSeq = n => {
+  let arr = [];
+    for (let i=n; i>0; i--) {
+      arr.push(i);
+      } return arr;
+  };
+        //ou
+        const reverseSeq = n => {
+          return Array(n).fill(0).map((e, i) => n - i );
+        };
+
+
+
+
+//convert seconds to H - M - S
+function secondsToHms(d) {
+  d = Number(d);
+  var h = Math.floor(d / 3600);
+  var m = Math.floor(d % 3600 / 60);
+  var s = Math.floor(d % 3600 % 60);
+
+  var hDisplay = h > 0 ? h + (h == 1 ? " hour, " : " hours, ") : "";
+  var mDisplay = m > 0 ? m + (m == 1 ? " minute, " : " minutes, ") : "";
+  var sDisplay = s > 0 ? s + (s == 1 ? " second" : " seconds") : "";
+  return hDisplay + mDisplay + sDisplay; 
+} 
