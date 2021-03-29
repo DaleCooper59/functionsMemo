@@ -197,6 +197,23 @@ function digital_root(n) {
 
 
 
+//autre fonction
+function persistence(num) {
+  var times = 0;
+  
+  num = num.toString();
+  
+  while (num.length > 1) {
+    times++;
+    num = num.split('').map(Number).reduce((a, b) => a * b).toString();
+  }
+  
+  return times;
+}
+
+
+
+
 //compteur d'element 
 var obj = {};
   A.forEach(function(el){
@@ -317,3 +334,55 @@ function secondsToHms(d) {
   var sDisplay = s > 0 ? s + (s == 1 ? " second" : " seconds") : "";
   return hDisplay + mDisplay + sDisplay; 
 } 
+
+
+
+
+//filtrer STRING et garder avec regex integer
+function myParseInt(str) {
+  return /^[\d\s]+$/.test(str) ? +str : NaN;
+}
+
+
+
+
+//replace with regex
+function gordon(a){
+  let b = a.split(' ').map(el => el + '!!!!').join(' ');
+  return b.toUpperCase().replace(/[aA]/gi,"@" ).replace(/[eiou]/gi,"*" )
+}
+        //ou
+        function gordon(ramsay) {
+          return ramsay
+            .toUpperCase()
+            .replace(/\w+/g, '$&!!!!')
+            .replace(/[AEIOU]/g, v => v == 'A' ? '@' : '*');
+        }
+
+
+
+
+//count letter in str
+function count (string) {  
+  var count = {};
+  string.split('').forEach(function(s) {
+     count[s] ? count[s]++ : count[s] = 1;
+  });
+  return count;
+}
+
+
+
+
+//check if contains substring + dédoublons + sort
+function inArray(array1,array2){
+  const res =[]
+  
+  array2.forEach(w =>{
+      array1.forEach(end =>{
+         if(w.includes(end)){
+            res.push(end)}
+               }) 
+                 })
+  return [...new Set(res)].sort();
+}
