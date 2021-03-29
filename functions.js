@@ -251,3 +251,38 @@ function reverseLetter(str) {
         function reverseLetter(str) {
           return [...str].reduce((s, c) => /[A-Z]/i.test(c) ? c + s : s, "")
         }
+
+
+
+
+//retrouver si el est dans array
+const find = (array, el) => array.indexOf(el) < 0 ? "Not found" : array.indexOf(el);
+
+
+
+
+//prix selon discount
+function apples(kilos, price) {
+  finalPrice = price * kilos
+  switch (true) {
+    case (kilos >= 11):
+      finalPrice *= .7
+      break
+    case (kilos >= 9):
+      finalPrice *= .75
+      break
+    case (kilos >= 7):
+      finalPrice *= .8
+      break
+    case (kilos >= 5):
+      finalPrice *= .85
+      break
+    case (kilos >= 3):
+      finalPrice *= .9
+      break
+    case (kilos >= 1):
+      finalPrice *= .95
+      break
+  }
+  return finalPrice
+}
