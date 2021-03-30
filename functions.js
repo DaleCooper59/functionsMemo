@@ -396,7 +396,7 @@ function inArray(array1,array2){
 
 
 
-//split string and add avec match() char pour return even array
+//split string par paire and add avec match() char pour return even array(si length impair)
 function solution(str){
   let len = str.length;
   let even = len%2;
@@ -413,3 +413,39 @@ function solution(str){
      }
  
 }
+        //ou avec while
+        function solution(str){
+          var i = 0;
+          var result = new Array();
+          if (str.length % 2 !== 0) {
+            str = str + '_';
+          }
+          while (i < str.length) {
+              result.push(str[i] + str[i+1]);
+              i += 2;
+            }
+          return result;
+        }
+
+
+
+
+//détail fonction floor, ceil et round de math
+Math.round = function(number) {
+  let int = parseInt(number);
+  var diff = number - int;
+  return diff >= .5 ? int + 1 : int;
+ 
+};
+
+Math.ceil = function(number) {
+   let int = parseInt(number);
+  var diff = number - int;
+  return diff > 0 ? int + 1 : int;
+ 
+};
+
+Math.floor = function(number) {
+  return parseInt(number);
+ 
+};
