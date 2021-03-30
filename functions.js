@@ -386,3 +386,30 @@ function inArray(array1,array2){
                  })
   return [...new Set(res)].sort();
 }
+        //ou avec filter(), find() et match()
+        function inArray(array1,array2){
+          return array1
+            .filter(a1 => array2.find(a2 => a2.match(a1)))
+            .sort()
+        }
+
+
+
+
+//split string and add avec match() char pour return even array
+function solution(str){
+  let len = str.length;
+  let even = len%2;
+     if(str === ''){
+        return [];
+      }else if(even ===0){
+    
+       return str.match(/.{2}/g);
+     }else{
+       let und = ["_"];
+       let newStr = str.concat(und);
+      
+       return newStr.match(/.{2}/g);
+     }
+ 
+}
