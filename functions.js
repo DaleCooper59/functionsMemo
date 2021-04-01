@@ -11,7 +11,8 @@ function spinWords(words){
   
 
 //Trier nombres +ptit au +grand
-sort((a, b) => a - b);
+let a=[0,5,5,4,894,84,0,48,498,];
+a.sort((a, b) => a - b);
 
 
 
@@ -315,7 +316,7 @@ const reverseSeq = n => {
       } return arr;
   };
         //ou
-        const reverseSeq = n => {
+        const reverse = n => {
           return Array(n).fill(0).map((e, i) => n - i );
         };
 
@@ -449,3 +450,45 @@ Math.floor = function(number) {
   return parseInt(number);
  
 };
+
+
+
+
+//convert int to color(2012)
+function toColor(num) {
+  num >>>= 0;
+  var b = num & 0xFF,
+      g = (num & 0xFF00) >>> 8,
+      r = (num & 0xFF0000) >>> 16,
+      a = ( (num & 0xFF000000) >>> 24 ) / 255 ;
+  return "rgba(" + [r, g, b, a].join(",") + ")";
+}
+var a = toColor(-5952982);
+
+var b = toColor(-12525360);
+
+$("div").eq(0).css("background-color", a );
+$("div").eq(1).css("background-color", b );
+
+
+
+
+//replace single occurence by one otherwise another
+const duplicateEncode = w => w.replace(/./g, c => (new RegExp(`([${c}]).*\\1`, 'gi')).test(w) ? ')' : '(');
+        //ou
+        function duplicateEncode(word){
+          return word
+            .toLowerCase()
+            .split('')
+            .map( function (a, i, w) {
+              return w.indexOf(a) == w.lastIndexOf(a) ? '(' : ')'
+            })
+            .join('');
+        }
+                //ou
+                function duplicateEncode(word) {
+                  var letters = word.toLowerCase().split('')
+                  return letters.map(function(c, i) {
+                    return letters.some(function(x, j) { return x === c && i !== j }) ? ')' : '('
+                  }).join('')
+                }
