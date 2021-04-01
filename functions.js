@@ -558,3 +558,20 @@ function getDivisorsCnt(n) {
 function timeForMilkAndCookies(date){
   return date.getDate() == 24 && date.getMonth() == 11;
 }
+
+
+
+
+//utilisation splice pour retirer une personne d'un tableau
+function getAttendees(peopleInvited, responses){
+  responses.forEach(function(val){
+    if (val.response === 'declined') peopleInvited.splice( peopleInvited.indexOf(val.name), 1); 
+  });
+  return peopleInvited;
+}
+        //ou FILTER ET MAP
+        function getAttendees(peopleInvited, responses){
+          var declined = responses.filter(res=> res.response === 'declined').map(res => res.name);
+          
+        return peopleInvited.filter(oui=> declined.indexOf(oui) === -1)
+        }
