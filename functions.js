@@ -492,3 +492,69 @@ const duplicateEncode = w => w.replace(/./g, c => (new RegExp(`([${c}]).*\\1`, '
                     return letters.some(function(x, j) { return x === c && i !== j }) ? ')' : '('
                   }).join('')
                 }
+
+
+
+
+//repeat string n times
+function repeater(string, n){
+  let arr = new Array(n)
+   return arr.fill(string).join('')
+  }
+        //ou
+        const repeater = (string, n) => {
+          return string.repeat(n);
+        }
+
+
+
+
+//retourne somme score lettres en fonction position alphabet avec charcodeat
+function high(x){
+  return x.split(' ').reduce((accum, current)=>{
+      return score(current) > score(accum)? current:accum;  
+  })
+}
+
+function score(word){
+  return word.split('').reduce((accum,current)=>{return accum+(current.charCodeAt()-96)},0)
+}
+        //ou boucle sur mot dans une boucle sur phrase, var garde temporairement plus grande valeur
+        function high(x){
+          var arr = x.toLowerCase().split(" ");
+          var sum = 0;
+          var holder = 0;
+          var holder2 = 0;
+          for(var i = 0; i < arr.length; i++) {
+            for(var j = 0; j < arr[i].length; j++) {
+              sum += arr[i].charCodeAt(j) - 96;    
+            }
+            if (sum > holder) { 
+               holder = sum;
+               holder2 = i;
+             }
+            sum = 0;
+            
+          }
+        return arr[holder2];
+        }
+
+
+
+
+//nombre diviseurs
+function getDivisorsCnt(n) {
+  for (var d = 0, i = n; i > 0; i--) {
+    if (n % i == 0) d++;
+  }
+  
+  return d;
+}
+
+
+
+
+//getDate
+function timeForMilkAndCookies(date){
+  return date.getDate() == 24 && date.getMonth() == 11;
+}
