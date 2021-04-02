@@ -17,6 +17,19 @@ a.sort((a, b) => a - b);
 
 
 
+//descending number
+function descendingOrder(n){
+  let len = String(n).length;
+  if (len > 1) {
+    let sorted = n.toString().split('').sort((a,b)=>b-a).join('');
+    return +sorted
+  }                     
+  return n
+}
+
+
+
+
 //rechercher si toutes les lettres de L'alphabet dans une phrase
 function isPangram(string){
   string = string.toLowerCase();
@@ -569,7 +582,7 @@ function getAttendees(peopleInvited, responses){
   });
   return peopleInvited;
 }
-        //ou FILTER ET MAP
+        //ou FILTER ET MAP sur objet responses
         function getAttendees(peopleInvited, responses){
           var declined = responses.filter(res=> res.response === 'declined').map(res => res.name);
           
