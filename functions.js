@@ -52,9 +52,10 @@ function descendingOrder(n){
 
 //lettres remplacée par alphabet position
 function alphabetPosition(text) {
-  let t = text.replace(/\W/g, '');
+  let t = text.replace(/[^a-zA-Z]/g, '');
   return [...t].map(e => e!=='' ? e.toUpperCase().charCodeAt()-64 : '').join(' ')
 }
+
 
 
 
