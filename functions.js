@@ -8,7 +8,27 @@ function spinWords(words){
   }
 
 
-  
+
+
+//regexp au moins 6, seulement alpha + au moins 1 lower / 1 upper / 1 digit
+function validate(password) {
+  console.log(password)
+  return/^(?=.{6,})(?=.*\d)(?!.*\s)(?!.*\.)(?=.*[a-z])(?=.*[A-Z])/.test(password);
+}
+        //ou
+        function validate(password) {
+          /**
+          * positive lookahead is used here to ensure that at least one of each character set is available
+          * you need to allow every character (.*) before your lookahead character set, 
+          * except you want to ensure the expression starts with i.e. a lowercase character.
+          * Each lookahead basically says "Is there <anything> and 1 or more of <character set> in the following expression?"
+          * The speciality here is that lookaheads wont touch the matching group so that you can check for 6 or more
+          * characters afterwards. The 6 or more characters will simply not match if they don't fulfill every lookahead.
+          **/
+          return /^(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*[0-9]+)[A-Za-z0-9]{6,}$/.test(password);
+        }
+
+
 
 //Trier nombres +ptit au +grand
 let a=[0,5,5,4,894,84,0,48,498,];
@@ -26,6 +46,16 @@ function descendingOrder(n){
   }                     
   return n
 }
+
+
+
+
+//lettres remplacée par alphabet position
+function alphabetPosition(text) {
+  let t = text.replace(/\W/g, '');
+  return [...t].map(e => e!=='' ? e.toUpperCase().charCodeAt()-64 : '').join(' ')
+}
+
 
 
 
