@@ -619,3 +619,19 @@ function getAttendees(peopleInvited, responses){
           
         return peopleInvited.filter(oui=> declined.indexOf(oui) === -1)
         }
+
+
+
+
+//return true if égality
+function validParentheses(parens){
+  let sum = 0;
+  for ( var i = 0 ; i < parens.length; i++){
+    if(parens[i] === '('){
+      sum +=1;
+    }else{
+      sum-=1;
+    }
+    if(sum<0){return false}
+  }return sum ===0
+ } 
