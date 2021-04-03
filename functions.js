@@ -141,6 +141,30 @@ function printerError(s) {
 
 
 
+//check si voyelle dans str
+function getCount(str) {
+  var vowelsCount = 0;
+  str.split('').forEach(e=>e.match(/[aeiou]/) ? vowelsCount++ : 0)
+  return vowelsCount;
+}
+        //ou boucle récursive
+        function getCount(str) {
+          var vowelsCount = 0;
+          var vowels = ["a","e","i","o","u"];
+          for(var i = 0;i < str.length;i++){
+            for(var j=0;j<vowels.length;j++){
+              if(str[i] === vowels[j]){
+                vowelsCount++;
+              }
+            }
+          }
+          
+          return vowelsCount;
+        }
+
+
+
+
 //récupéer milieu d'un string
 function getMiddle(s)
 {
@@ -667,3 +691,23 @@ function validParentheses(parens){
           while (re.test(parens)) parens = parens.replace(re, "");
           return !parens;
         }
+
+
+
+
+//afficher qui aime
+function likes(names) {
+let num = names.length-2;
+ 
+  if (names.length === 0 ){
+    return 'no one likes this';}
+  else if (names.length === 1){
+    return names[0] + ' likes this';}
+  else if (names.length === 2){
+    return names[0] + ' and ' + names[1] + ' like this';}
+  else if (names.length === 3){
+    return names[0] + ', ' + names[1] + ' and ' + names[2] + ' like this';
+  }
+  else {
+    return names[0] + ', ' + names[1] + ' and ' + (num) + ' others like this';}
+}
