@@ -72,6 +72,16 @@ function isPangram(string){
 
 
 
+//fonction every compare deux array pour savoir si exactement les memes éléments
+function comp(array1, array2) {
+  if(array1 == null || array2 == null) return false;
+  array1.sort((a, b) => a - b); array2.sort((a, b) => a - b);
+  return array1.map(v => v * v).every((v, i) => v == array2[i]);
+}
+
+
+
+
 //retourner seul élément pair ou impair d'un tableau
 function findOutlier(int){
   var even = int.filter(a=>a%2==0);
@@ -237,6 +247,22 @@ function digital_root(n) {
   if(n<10)return n;
   
   return digital_root(n.toString().split('').reduce((a, b) => parseInt(a) + parseInt(b), 0));
+}
+
+
+
+
+//multiple de 3 ou 5
+function solution(number){
+  let arr = 0
+  if (number < 0) {return 0};
+  
+  for (var i = 1 ; i < number;i++){
+    if (i % 3 ===0 || i % 5 ===0 ){
+      arr+=i
+      
+    }
+  }return arr
 }
 
 
@@ -635,3 +661,9 @@ function validParentheses(parens){
     if(sum<0){return false}
   }return sum ===0
  } 
+        //ou using test with regex
+        function validParentheses(parens){
+          var re = /\(\)/;
+          while (re.test(parens)) parens = parens.replace(re, "");
+          return !parens;
+        }
