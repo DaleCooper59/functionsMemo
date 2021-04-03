@@ -72,7 +72,7 @@ function isPangram(string){
 
 
 
-//fonction every compare deux array pour savoir si exactement les memes éléments
+//fonction every compare deux array pour savoir si exactement les memes nombres
 function comp(array1, array2) {
   if(array1 == null || array2 == null) return false;
   array1.sort((a, b) => a - b); array2.sort((a, b) => a - b);
@@ -469,6 +469,24 @@ function count (string) {
 
 
 
+//compter lettres dupliquées
+function duplicateCount(text){
+  let arr = []
+  let arr2 = []
+  
+  var uniq = text.toLowerCase().split('').reduce(function(a,b){
+    arr.indexOf(b) < 0 ? arr.push(b) : arr2.push(b);
+  },[])
+  
+  return arr2.sort().filter(function(item, i, ary) {
+        return !i || item != ary[i - 1];
+    }).length
+}
+ 
+
+
+
+
 //check if contains substring + dédoublons + sort
 function inArray(array1,array2){
   const res =[]
@@ -711,3 +729,13 @@ let num = names.length-2;
   else {
     return names[0] + ', ' + names[1] + ' and ' + (num) + ' others like this';}
 }
+        //ou en utilisant un objet
+        function likes(names) {
+          return {
+            0: 'no one likes this',
+            1: `${names[0]} likes this`, 
+            2: `${names[0]} and ${names[1]} like this`, 
+            3: `${names[0]}, ${names[1]} and ${names[2]} like this`, 
+            4: `${names[0]}, ${names[1]} and ${names.length - 2} others like this`, 
+          }[Math.min(4, names.length)]
+        }
