@@ -2,10 +2,18 @@
 function spinWords(words){
     return words.split(' ').map(word => (word.length >= 4) ? reverseStr(word):word).join(' ');
   }
-  
   function reverseStr(str){
     return str.split('').reverse().join('');
   }
+        //ou
+        function spinWords(words){
+          let rev = words.split(' ').map(e=> e.length >= 5 ? [...e].reverse() : e)
+          return rev.join(' ').replace(/,/g , '')
+        }
+          //ou replace avec fonction en 2é argument
+          function spinWords(string){
+            return string.replace(/\w{5,}/g, function(w) { return w.split('').reverse().join('') })
+          }
 
 
 
@@ -482,6 +490,32 @@ function duplicateCount(text){
         return !i || item != ary[i - 1];
     }).length
 }
+        //ou avec regex
+        function duplicateCount(text){
+          return (text.toLowerCase().split('').sort().join('').match(/([^])\1+/g) || []).length;
+        }
+          //ou avec objet 
+          function duplicateCount(text){
+              var input = text.toLowerCase().split('');
+              var obj = {};
+            
+            for( var i in input) {
+                if(!obj[ input[i] ]){
+                  obj[ input[i] ] = 1;
+                } else{
+                obj[ input[i] ] += 1;
+              } 
+            }
+            
+            var result = 0;
+            for( var prop in obj) {
+              if(obj[prop] > 1){
+               result++;
+              }
+            }
+            
+            return result;
+          }
  
 
 
