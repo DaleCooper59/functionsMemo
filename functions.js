@@ -773,3 +773,14 @@ let num = names.length-2;
             4: `${names[0]}, ${names[1]} and ${names.length - 2} others like this`, 
           }[Math.min(4, names.length)]
         }
+
+
+
+
+//trier par rapport au nombre contenu dans les mots avec match()
+function order(words){
+  
+  return words.split(' ').sort(function(a, b){
+      return a.match(/\d/) - b.match(/\d/);
+   }).join(' ');
+}    
