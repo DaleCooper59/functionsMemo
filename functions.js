@@ -385,6 +385,25 @@ const find = (array, el) => array.indexOf(el) < 0 ? "Not found" : array.indexOf(
         function array_diff(a, b) {
           return a.filter(e => !b.includes(e));
         }
+          //ou avec map et Set
+          function array_diff(a, b) {
+            let set = new Set(b);
+            return a.map(x => !set.has(x) ? x : null).filter(x => x);
+          }
+          //ou
+          function arrayDiff(a, b) {
+            if(b.length==0 || a.length==0) return a;
+            for(let i =0;i<a.length;i++){
+              for(let j=0;j<b.length;j++){
+                if(a[i]==b[j]){
+                  a.splice(i,1);
+                  i--;
+                }
+              }
+            }
+            return a;
+          }
+
 
 
 
@@ -805,3 +824,27 @@ function toUnderscore(string) {
   }
   return String(string)
 }
+
+
+
+
+//return number phone with number entered using splice
+function createPhoneNumber(numbers){
+  let str = numbers.toString().replace(/,/g,'').split('');
+  str.splice(0,0,'(')
+  str.splice(4,0,')')
+  str.splice(5,0," ")
+  str.splice(9,0,'-')
+ return str.join('')
+}
+        //ou magique
+        function createPhoneNumber(numbers){
+          var format = "(xxx) xxx-xxxx";
+          
+          for(var i = 0; i < numbers.length; i++)
+          {
+            format = format.replace('x', numbers[i]);
+          }
+          
+          return format;
+        }
