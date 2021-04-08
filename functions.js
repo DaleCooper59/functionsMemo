@@ -86,7 +86,11 @@ function comp(array1, array2) {
   array1.sort((a, b) => a - b); array2.sort((a, b) => a - b);
   return array1.map(v => v * v).every((v, i) => v == array2[i]);
 }
-
+        //recherche si lettre de str2 sont toutes ds str1, every retournera false si au moins une n'y est pas
+        function scramble(str1, str2) {
+          let occurences = str1.split("").reduce((arr, cur) => { arr[cur] ? arr[cur]++ : arr[cur] = 1; return arr; }, {});
+          return str2.split("").every((character) => --occurences[character] >= 0);
+        }
 
 
 
@@ -377,7 +381,10 @@ function reverseLetter(str) {
 
 //retrouver si el est dans array
 const find = (array, el) => array.indexOf(el) < 0 ? "Not found" : array.indexOf(el);
-
+        //ou filtrer el pas inclus dans l'autre
+        function array_diff(a, b) {
+          return a.filter(e => !b.includes(e));
+        }
 
 
 
@@ -784,3 +791,17 @@ function order(words){
       return a.match(/\d/) - b.match(/\d/);
    }).join(' ');
 }    
+
+
+
+
+//camelcase to snakecase with check if number
+function toUnderscore(string) {
+  if(isNaN(string)){
+      let strM = String(string).split('').map(e=>e.match(/[A-Z]/) ? '_' + e : e);
+      let splitArr =  strM[0].split('');
+      let newArr =  String(strM).replace(strM[0],splitArr[1]);
+     return newArr.replace(/,/g,'').toLowerCase()
+  }
+  return String(string)
+}
