@@ -883,3 +883,19 @@ function switcheroo(x){
   })
   return good === 0? "Fail!" : good <=2 ? "Publish!" : "I smell a series!"
 }
+
+
+
+
+//utiliser un objet pour associer, en utilisant reduce, l'index des éléments d'un tableau( en remplacant les values
+// par par ces éléments correpsondant aux index) aux keys respectivement de cet objet
+function paul(activities) {
+  const VALUES = {'Petes kata': 10, 'kata': 5, 'eating': 1, 'life': 0};
+  const score = activities.reduce((s, a) => s + VALUES[a], 0);
+  switch (true) {
+    case score < 40: return 'Super happy!';
+    case score < 70: return 'Happy!';
+    case score < 100: return 'Sad!';
+    default: return 'Miserable!';
+  }
+}
