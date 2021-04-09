@@ -859,3 +859,27 @@ function peopleWithAgeDrink(old) {
   : old < 21 ? "drink beer"
   : "drink whisky";
 };
+
+
+
+
+//swap letter
+function switcheroo(x){
+  return [...x].map(e=> e == 'a' ? e.replace('a','b') : e == 'b' ? e.replace('b','a') : e).join('')
+ }
+
+
+
+
+ //array deux dimensions
+ function well(x){
+  let good=0;
+  
+  x.map(e=>{
+    e.map(f=>{
+      let g = f.toString().replace(/[^a-zA-Z]/g,'')
+      if (String(g).toLowerCase() === "good"){good++}
+    })
+  })
+  return good === 0? "Fail!" : good <=2 ? "Publish!" : "I smell a series!"
+}
